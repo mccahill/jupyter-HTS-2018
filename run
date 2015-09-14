@@ -1,0 +1,5 @@
+sudo docker run -d -p 9999:8888 \
+  -e PASSWORD="badpassword" \
+  -v /home/bitnami/homedirs/user001:/home/jovyan/work \
+  -e NB_UID=1000 \
+  jupyter/sql 
