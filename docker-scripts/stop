@@ -1,0 +1,9 @@
+#!/bin/csh
+#
+# stop and remove any containers that exist
+#
+foreach container (`sudo docker ps -q -a`)
+  sudo docker kill $container
+  sudo docker rm $container
+end
+
