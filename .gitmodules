@@ -1,3 +1,9 @@
 [submodule "src/ipython-sql"]
 	path = src/ipython-sql
 	url = https://mccahill@github.com/mccahill/ipython-sql.git
+[submodule "src/docker-nginx"]
+	path = src/docker-nginx
+	url = git://gitorious.oit.duke.edu/docker-nginx/docker-nginx.git
+[submodule "src/docker-gen"]
+	path = src/docker-gen
+	url = git://gitorious.oit.duke.edu/docker-gen/docker-gen.git
