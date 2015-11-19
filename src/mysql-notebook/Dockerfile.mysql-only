@@ -34,8 +34,7 @@ ENV NB_UID 1000
 # Install conda
 RUN mkdir -p $CONDA_DIR && \
     echo export PATH=$CONDA_DIR/bin:'$PATH' > /etc/profile.d/conda.sh && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-3.9.1-Linux-x86_
-64.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-3.9.1-Linux-x86_64.sh && \
     /bin/bash /Miniconda3-3.9.1-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-3.9.1-Linux-x86_64.sh && \
     $CONDA_DIR/bin/conda install --yes conda==3.14.1
@@ -75,8 +74,7 @@ COPY jupyter_notebook_config.py /home/$NB_USER/.jupyter/
 RUN chown -R $NB_USER:users /home/$NB_USER/.jupyter
 
 # python notebook support for sql
-RUN apt-get install -y python-mysqldb python-dev libmysqlclient-dev build-essent
-ial
+RUN apt-get install -y python-mysqldb python-dev libmysqlclient-dev build-essential
 RUN pip install mysqlclient
 ADD ipython-sql /home/jovyan/ipython-sql
 RUN chown -R jovyan /home/jovyan/ipython-sql
