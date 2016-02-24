@@ -123,6 +123,7 @@ RUN conda install --yes \
     'numpy=1.9*' \
     'pillow=2.8*' \
     'requests=2.7*' \
+	'numexpr' \
     && conda clean -yt
 
 # Install Python 2 packages
