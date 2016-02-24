@@ -172,6 +172,13 @@ RUN conda install --yes \
 
 USER root
 
+# we need dvipng so that matplotlib can do LaTeX
+#
+RUN apt-get install -y \
+    dvipng
+
+# ggplot
+#
 RUN pip install ggplot
 
 # Install Python 2 kernel spec globally to avoid permission problems when NB_UID
