@@ -123,6 +123,8 @@ RUN conda install --yes \
     'numpy=1.9*' \
     'pillow=2.8*' \
     'requests=2.7*' \
+    nose \
+    'pystan=2.8*' \
     && conda clean -yt
 
 # Install Python 2 packages
@@ -171,6 +173,13 @@ RUN conda install --yes \
     'r-randomforest=4.6*' && conda clean -yt
 
 USER root
+
+# Armadillo C++ linear algebra library - see http://arma.sourceforge.net
+#
+RUN apt-get install -y \
+    libarmadillo4 \
+    libarmadillo-dev
+
 
 # we need dvipng so that matplotlib can do LaTeX
 #
