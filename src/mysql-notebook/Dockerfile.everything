@@ -172,6 +172,17 @@ RUN conda install --yes \
     'r-rcurl=1.95*' \
     'r-randomforest=4.6*' && conda clean -yt
 
+
+# numexpr for Paul Magwene
+# note that we explicitly turn off MKL with nomkl since conda MKL fails to install right now
+RUN conda install --yes \
+    nomkl \
+    numpy \
+    scipy \
+    scikit-learn \
+    numexpr
+
+
 USER root
 
 # Armadillo C++ linear algebra library - see http://arma.sourceforge.net
