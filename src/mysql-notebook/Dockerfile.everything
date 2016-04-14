@@ -189,7 +189,10 @@ USER root
 #
 RUN apt-get install -y \
     libarmadillo4 \
-    libarmadillo-dev
+    libarmadillo-dev \
+    liblapack3 \
+    libblas-dev \
+    liblapack-dev
 
 
 # we need dvipng so that matplotlib can do LaTeX
@@ -200,6 +203,14 @@ RUN apt-get install -y \
 # ggplot
 #
 RUN pip install ggplot
+
+#
+#  IPyParallel
+#
+RUN conda install --yes \
+    ipyparallel
+RUN ipcluster nbextension enable
+
 
 # rpy2
 #
