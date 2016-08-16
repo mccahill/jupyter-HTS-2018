@@ -3,10 +3,10 @@
 	url = https://mccahill@github.com/mccahill/ipython-sql.git
 [submodule "src/docker-nginx"]
 	path = src/docker-nginx
-	url = git@gitlab.oit.duke.edu:mccahill/docker-nginx.git
+	url = http://gitlab.oit.duke.edu/mccahill/docker-nginx.git
 [submodule "src/docker-gen"]
 	path = src/docker-gen
-	url = git@gitlab.oit.duke.edu:mccahill/docker-gen.git
+	url = http://gitlab.oit.duke.edu/mccahill/docker-gen.git
 [submodule "src/mysql"]
 	path = src/mysql
 	url = https://github.com/docker-library/mysql.git
