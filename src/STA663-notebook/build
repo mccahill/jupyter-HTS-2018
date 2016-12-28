@@ -1,1 +1,1 @@
-sudo docker build -t="jupyter-sql" .
+sudo docker build -t="jupyter-STA663" .
