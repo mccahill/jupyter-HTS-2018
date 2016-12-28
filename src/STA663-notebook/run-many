@@ -1,64 +1,64 @@
-sudo docker run --name jupyter-sql-001 --link test-mysql:jupyter-sql-001 \
+sudo docker run --name jupyter-STA663-001 --link test-mysql:jupyter-STA663-001 \
   -d -p 40001:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user001:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-002 --link test-mysql:jupyter-sql-002 \
+sudo docker run --name jupyter-STA663-002 --link test-mysql:jupyter-STA663-002 \
   -d -p 40002:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user002:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-003 --link test-mysql:jupyter-sql-003 \
+sudo docker run --name jupyter-STA663-003 --link test-mysql:jupyter-STA663-003 \
   -d -p 40003:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user003:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-004 --link test-mysql:jupyter-sql-004 \
+sudo docker run --name jupyter-STA663-004 --link test-mysql:jupyter-STA663-004 \
   -d -p 40004:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user004:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-005 --link test-mysql:jupyter-sql-005 \
+sudo docker run --name jupyter-STA663-005 --link test-mysql:jupyter-STA663-005 \
   -d -p 40005:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user005:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-006 --link test-mysql:jupyter-sql-006 \
+sudo docker run --name jupyter-STA663-006 --link test-mysql:jupyter-STA663-006 \
   -d -p 40006:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user006:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-007 --link test-mysql:jupyter-sql-007 \
+sudo docker run --name jupyter-STA663-007 --link test-mysql:jupyter-STA663-007 \
   -d -p 40007:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user007:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-008 --link test-mysql:jupyter-sql-008 \
+sudo docker run --name jupyter-STA663-008 --link test-mysql:jupyter-STA663-008 \
   -d -p 40008:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user008:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
-sudo docker run --name jupyter-sql-009 --link test-mysql:jupyter-sql-009 \
+sudo docker run --name jupyter-STA663-009 --link test-mysql:jupyter-STA663-009 \
   -d -p 40009:8888 \
   -e PASSWORD="badpassword" \
   -v /srv/persistent-data/homedirs/user009:/home/jovyan/work \
   -e NB_UID=1000 \
-  jupyter-sql
+  jupyter-STA663
 sleep 3
 
