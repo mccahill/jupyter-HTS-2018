@@ -4,8 +4,9 @@ before_script:
 
 build_container:
   script:
-    - pwd; ls -la
+    - pwd; cd src/STA663-notebook; ls -la
+	- ./build-test
 
 install_test_container:
   script:
-    - ps -ef
+    - sudo docker images
