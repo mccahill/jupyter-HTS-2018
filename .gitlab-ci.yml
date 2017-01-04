@@ -1,6 +1,6 @@
 before_script:
-  - sudo docker --version
   - whoami
+  - sudo docker --version
 
 build_container:
   script:
