@@ -1,0 +1,10 @@
+before_script:
+  - sudo docker --version
+
+build_container:
+  script:
+    - pwd; ls -la
+
+install_test_container:
+  script:
+    - ps -ef
