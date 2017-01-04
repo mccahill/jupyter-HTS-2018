@@ -1,1 +1,1 @@
-sudo docker build -t="test-jupyter-STA663" .
+sudo docker build --tag test:jupyter-STA663 .
