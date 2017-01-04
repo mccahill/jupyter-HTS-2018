@@ -5,7 +5,7 @@
 sudo docker kill jupyter-443
 sudo docker rm jupyter-443
         echo ipynb-az-06.oit.duke.edu:443
-        sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-443 \
+        sudo docker run --name jupyter-443 --link mysqlserver\:jupyter-443 \
           -d -p 127.0.0.1\:\:8888 \
           -e PASSWORD=JIyPaGrQzxH3taTc9PS9aW4mB8CxkR \
           -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:443 \
