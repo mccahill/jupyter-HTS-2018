@@ -5,7 +5,7 @@ before_script:
 build_container:
   script:
     - pwd; cd src/STA663-notebook; ls -la
-	- ./build-test
+    - ./build-test
 
 install_test_container:
   script:
