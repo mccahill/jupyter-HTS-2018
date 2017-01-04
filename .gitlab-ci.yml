@@ -2,11 +2,34 @@ before_script:
   - whoami
   - sudo docker --version
 
-build_container:
-  script:
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script: 
+    - echo "Building the app"
     - pwd; cd src/STA663-notebook; ls -la
     - ./build-test
 
-install_test_container:
+deploy_staging:
+  stage: deploy
   script:
-    - sudo docker images
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: https://staging.example.com
+  only:
+  - master
+
+deploy_prod:
+  stage: deploy
+  script:
+    - echo "Deploy to production server"
+  environment:
+    name: production
+    url: https://example.com
+  when: manual
+  only:
+  - master
