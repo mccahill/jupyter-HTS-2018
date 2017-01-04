@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# run the test/monitoring instance at port 443 
+#
+        echo ipynb-az-06.oit.duke.edu:443
+        sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-443 \
+          -d -p 127.0.0.1\:\:8888 \
+          -e PASSWORD=JIyPaGrQzxH3taTc9PS9aW4mB8CxkR \
+          -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:443 \
+          -e MAP_VIRTUAL_PORT=443 \
+          -v /srv/persistent-data/homedirs/monitoring-user\:/home/jovyan/work \
+          -e NB_UID=1000 \
+          -t jupyter-test
+

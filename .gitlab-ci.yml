@@ -9,27 +9,30 @@ stages:
 build:
   stage: build
   script: 
-    - echo "Building the app"
-    - pwd; cd src/STA663-notebook; ls -la
+    - echo "Building the test app"
+    - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
 deploy_staging:
   stage: deploy
   script:
     - echo "Deploy to staging server"
+	- cd /srv/persistent-data/docker-scripts; ./run-test-instance
   environment:
     name: staging
-    url: https://staging.example.com
   only:
   - master
 
 deploy_prod:
   stage: deploy
   script:
+    - echo "Building the production app"
+    - cd src/STA663-notebook; pwd; ls -la
+    - ./build-production
     - echo "Deploy to production server"
+    - cd /srv/persistent-data/docker-scripts; ./run-everything
   environment:
     name: production
-    url: https://example.com
   when: manual
   only:
   - master

@@ -2,11 +2,11 @@
 #
 # run the monitoring instance at port 443 first
 #
-        echo ipynb-az-00.oit.duke.edu:443
+        echo ipynb-az-06.oit.duke.edu:443
         sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-443 \
           -d -p 127.0.0.1\:\:8888 \
           -e PASSWORD=JIyPaGrQzxH3taTc9PS9aW4mB8CxkR \
-          -e VIRTUAL_HOST=ipynb-az-00.oit.duke.edu\:443 \
+          -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:443 \
           -e MAP_VIRTUAL_PORT=443 \
           -v /srv/persistent-data/homedirs/monitoring-user\:/home/jovyan/work \
           -e NB_UID=1000 \
@@ -20,11 +20,11 @@ IFS=,
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
 while read port pw
 do
-        echo ipynb-az-00.oit.duke.edu:40$port
+        echo ipynb-az-06.oit.duke.edu:40$port
         sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-$port \
           -d -p 127.0.0.1\:\:8888 \
           -e PASSWORD=$pw \
-          -e VIRTUAL_HOST=ipynb-az-00.oit.duke.edu\:40$port \
+          -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:40$port \
           -e MAP_VIRTUAL_PORT=40$port \
           -v /srv/persistent-data/homedirs/user$port\:/home/jovyan/work \
           -e NB_UID=1000 \
