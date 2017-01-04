@@ -17,7 +17,7 @@ deploy_staging:
   stage: deploy
   script:
     - echo "Deploy to staging server"
-    - cd /srv/persistent-data/docker-scripts; ./run-test-instance
+    - cd src/STA663-notebook; pwd; ls -la; ./run-test-instance
   environment:
     name: staging
   only:
