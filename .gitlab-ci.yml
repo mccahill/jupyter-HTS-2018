@@ -23,7 +23,7 @@ deploy_staging:
   only:
   - master
 
-deploy_prod:
+deploy_production:
   stage: deploy
   script:
     - echo "Building the production app"
