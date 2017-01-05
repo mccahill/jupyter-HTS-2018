@@ -4,6 +4,7 @@ before_script:
 
 stages:
   - build
+  - deploy_staging
   - deploy
 
 build:
