@@ -3,7 +3,8 @@
 # run the monitoring instance at port 443 first
 #
         echo ipynb-az-06.oit.duke.edu:443
-        sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-443 \
+        sudo docker run --name jupyter-test-$port \
+          --link mysqlserver\:jupyter-test-443 \
           -d -p 127.0.0.1\:\:8888 \
           -e PASSWORD=JIyPaGrQzxH3taTc9PS9aW4mB8CxkR \
           -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:443 \
@@ -21,7 +22,8 @@ IFS=,
 while read port pw
 do
         echo ipynb-az-06.oit.duke.edu:40$port
-        sudo docker run --name jupyter-$port --link mysqlserver\:jupyter-$port \
+        sudo docker run --name jupyter-$port \
+          --link mysqlserver\:jupyter-test-443 \
           -d -p 127.0.0.1\:\:8888 \
           -e PASSWORD=$pw \
           -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:40$port \
