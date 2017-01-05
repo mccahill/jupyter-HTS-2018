@@ -2,8 +2,8 @@
 #
 # run the test/monitoring instance at port 443 
 #
-sudo docker kill jupyter-443
-sudo docker rm jupyter-443
+sudo docker kill jupyter-test-443
+sudo docker rm jupyter-test-443
         echo ipynb-az-06.oit.duke.edu:443
         sudo docker run --name jupyter-test-443 \
           --link mysqlserver\:jupyter-test-443 \
