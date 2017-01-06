@@ -6,6 +6,5 @@
 #
 /srv/persistent-data/docker-scripts/run-nginx
 /srv/persistent-data/docker-scripts/run-docker-gen
-/srv/persistent-data/docker-scripts/run-mysql
 /srv/persistent-data/docker-scripts/run-mapping-00
 

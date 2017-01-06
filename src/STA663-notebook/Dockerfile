@@ -235,21 +235,25 @@ RUN conda config --add channels r && \
     'r-rcurl=1.95*' \
     'r-randomforest=4.6*' && conda clean -tipsy
 
-# Install IJulia packages as jovyan and then move the kernelspec out
-# to the system share location. Avoids problems with runtime UID change not
-# taking effect properly on the .local folder in the jovyan home dir.
-RUN julia -e 'Pkg.add("IJulia")' && \
-    mv $HOME/.local/share/jupyter/kernels/julia* $CONDA_DIR/share/jupyter/kernels/ && \
-    chmod -R go+rx $CONDA_DIR/share/jupyter && \
-    rm -rf $HOME/.local
-
-# Show Julia where conda libraries are
-# Add essential packages
-RUN echo "push!(Libdl.DL_LOAD_PATH, \"$CONDA_DIR/lib\")" > /home/$NB_USER/.juliarc.jl && \
-    julia -e 'Pkg.add("Gadfly")' && julia -e 'Pkg.add("RDatasets")' && julia -F -e 'Pkg.add("HDF5")'
-
-# Precompile Julia pakcages
-RUN julia -e 'using IJulia' && julia -e 'using Gadfly' && julia -e 'using RDatasets'&& julia -e 'using HDF5'
+# ******** no Julia for now ********
+##	
+##  # Install IJulia packages as jovyan and then move the kernelspec out
+##  # to the system share location. Avoids problems with runtime UID change not
+##  # taking effect properly on the .local folder in the jovyan home dir.
+##  RUN julia -e 'Pkg.add("IJulia")' && \
+##      mv $HOME/.local/share/jupyter/kernels/julia* $CONDA_DIR/share/jupyter/kernels/ && \
+##      chmod -R go+rx $CONDA_DIR/share/jupyter && \
+##      rm -rf $HOME/.local
+##  
+##  # Show Julia where conda libraries are
+##  # Add essential packages
+##  RUN echo "push!(Libdl.DL_LOAD_PATH, \"$CONDA_DIR/lib\")" > /home/$NB_USER/.juliarc.jl && \
+##      julia -e 'Pkg.add("Gadfly")' && julia -e 'Pkg.add("RDatasets")' && julia -F -e 'Pkg.add("HDF5")'
+##  
+##  # Precompile Julia pakcages
+##  RUN julia -e 'using IJulia' && julia -e 'using Gadfly' && julia -e 'using RDatasets'&& julia -e 'using HDF5'
+##  
+# ******** no Julia for now ********
 
 #----------- end datascience
 
@@ -276,25 +280,28 @@ RUN pip install  bash_kernel
 RUN python -m bash_kernel.install
 USER root
 
-# mysql client so we can connect to an SQL server from bash shell
-RUN apt-get update && apt-get -yq dist-upgrade \
- && apt-get install -yq --no-install-recommends \
-  mysql-client \
-  python-mysqldb \
-  python-dev \ 
-  libmysqlclient-dev \ 
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# python notebook support for sql
-RUN pip install mysqlclient
-ADD ipython-sql /home/jovyan/ipython-sql
-RUN chown -R jovyan /home/jovyan/ipython-sql
-
-USER jovyan
-
-RUN cd /home/jovyan/ipython-sql; \
-    python setup.py install
+# ******** no mySQL for now ********
+### mysql client so we can connect to an SQL server from bash shell
+##  RUN apt-get update && apt-get -yq dist-upgrade \
+##   && apt-get install -yq --no-install-recommends \
+##    mysql-client \
+##    python-mysqldb \
+##    python-dev \ 
+##    libmysqlclient-dev \ 
+##   && apt-get clean \
+##   && rm -rf /var/lib/apt/lists/*
+##  
+##  # python notebook support for sql
+##  RUN pip install mysqlclient
+##  ADD ipython-sql /home/jovyan/ipython-sql
+##  RUN chown -R jovyan /home/jovyan/ipython-sql
+##  
+##  USER jovyan
+##  
+##  RUN cd /home/jovyan/ipython-sql; \
+##      python setup.py install
+##  
+# ******** no mySQL for now ********
 
 RUN conda install --yes \
     'numpy=1.11*' \
