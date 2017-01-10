@@ -3,15 +3,15 @@ before_script:
   - sudo docker --version
 
 stages:
-  - build_staging1
-  - build_staging2
-  - build_staging3
-  - deploy_staging1
+  - build
+  - build2
+  - build3
+  - deploy_staging
   - deploy_staging2
   - deploy_staging3
   - deploy
 
-build_staging1:
+build:
   tags: 
     - production1
     - jupyter-STA663
@@ -21,7 +21,7 @@ build_staging1:
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
-build_staging2:
+build2:
   tags: 
     - production2
     - jupyter-STA663
@@ -31,7 +31,7 @@ build_staging2:
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
-build_staging3:
+build3:
   tags: 
     - production3
     - jupyter-STA663
@@ -41,9 +41,9 @@ build_staging3:
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
-deploy_staging1:
+deploy_staging:
   tags: 
-    - production1
+    - production3
     - jupyter-STA663
   stage: deploy
   script:
