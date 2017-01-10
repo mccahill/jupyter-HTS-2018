@@ -37,8 +37,3 @@ deploy_production:
   when: manual
   only:
   - master
-  environment:
-      name: production2
-    when: manual
-    only:
-    - master
