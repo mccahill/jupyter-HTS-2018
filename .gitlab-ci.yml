@@ -37,32 +37,8 @@ deploy_production:
   when: manual
   only:
   - master
-  
-  deploy_production2:
-    stage: deploy
-    script:
-      - echo "Building the production app"
-      - cd src/STA663-notebook; pwd; ls -la
-      - ./build-production
-      - echo "Deploy to production server"
-      - cd /srv/persistent-data/docker-scripts; ./run-everything
-    environment:
+  environment:
       name: production2
     when: manual
     only:
     - master
-
-  deploy_production3:
-    stage: deploy
-    script:
-      - echo "Building the production app"
-      - cd src/STA663-notebook; pwd; ls -la
-      - ./build-production
-      - echo "Deploy to production server"
-      - cd /srv/persistent-data/docker-scripts; ./run-everything
-    environment:
-      name: production3
-    when: manual
-    only:
-    - master
-
