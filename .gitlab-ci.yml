@@ -41,9 +41,9 @@ build_staging3:
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
-deploy_staging:
+deploy_staging1:
   tags: 
-    - production3
+    - production1
     - jupyter-STA663
   stage: deploy
   script:
