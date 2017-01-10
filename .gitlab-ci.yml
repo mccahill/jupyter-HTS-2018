@@ -8,6 +8,9 @@ stages:
   - deploy
 
 build:
+  tags: 
+    - production2
+    - jupyter-STA663
   stage: build
   script: 
     - echo "Building the app in staging"
