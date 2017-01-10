@@ -10,7 +10,7 @@ stages:
 build:
   stage: build
   script: 
-    - echo "Building the test app"
+    - echo "Building the app in staging"
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
