@@ -6,7 +6,7 @@ stages:
   - build_staging1
   - build_staging2
   - build_staging3
-  - deploy_staging
+  - deploy_staging1
   - deploy_staging2
   - deploy_staging3
   - deploy
