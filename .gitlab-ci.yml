@@ -4,14 +4,38 @@ before_script:
 
 stages:
   - build
+  - build2
+  - build3
   - deploy_staging
+  - deploy_staging2
+  - deploy_staging3
   - deploy
 
 build:
   tags: 
-    - production2
+    - production1
     - jupyter-STA663
   stage: build
+  script: 
+    - echo "Building the app in staging"
+    - cd src/STA663-notebook; pwd; ls -la
+    - ./build-test
+
+build2:
+  tags: 
+    - production2
+    - jupyter-STA663
+  stage: build2
+  script: 
+    - echo "Building the app in staging"
+    - cd src/STA663-notebook; pwd; ls -la
+    - ./build-test
+
+build3:
+  tags: 
+    - production3
+    - jupyter-STA663
+  stage: build3
   script: 
     - echo "Building the app in staging"
     - cd src/STA663-notebook; pwd; ls -la
