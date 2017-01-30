@@ -130,6 +130,8 @@ RUN conda install --quiet --yes \
     'h5py=2.6*' \
     'vincent=0.4.*' \
     'beautifulsoup4=4.5.*' \
+    'openpyxl' \
+    'pandas-datareader' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy
