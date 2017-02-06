@@ -134,7 +134,7 @@ RUN conda install --quiet --yes \
     'pandas-datareader' \
     'ipython-sql' \
     'pandasql' \
-    'memory-profiler'\
+    'memory_profiler'\
     'psutil' \
     'cythongsl' \
     'joblib' \
