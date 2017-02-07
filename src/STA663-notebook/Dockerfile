@@ -134,6 +134,10 @@ RUN conda install --quiet --yes \
     'pandas-datareader' \
     'ipython-sql' \
     'pandasql' \
+    'memory_profiler'\
+    'psutil' \
+    'cythongsl' \
+    'joblib' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy
