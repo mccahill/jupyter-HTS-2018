@@ -91,6 +91,7 @@ RUN conda install --quiet --yes \
     'notebook=4.2*' \
     jupyterhub=0.7 \
     && conda clean -tipsy
+    
 
 #----------- scipy
 USER root
@@ -138,12 +139,15 @@ RUN conda install --quiet --yes \
     'psutil' \
     'cythongsl' \
     'joblib' \
+    'ipyparallel' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy
 
 # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
+RUN ipcluster nbextension enable
+
 
 # Install Python 2 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
