@@ -146,7 +146,7 @@ RUN conda install --quiet --yes \
 
 # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
-RUN ipcluster nbextension --user joyvan  enable
+RUN ipcluster nbextension  enable --user
 
 
 # Install Python 2 packages
