@@ -140,6 +140,8 @@ RUN conda install --quiet --yes \
     'cythongsl' \
     'joblib' \
     'ipyparallel' \
+    'pybind11' \
+#    'cppimport' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy
@@ -337,6 +339,7 @@ RUN apt-get update \
     liblapack3 \
     libblas-dev \
     liblapack-dev \
+    libeigen3-dev \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
