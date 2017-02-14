@@ -141,7 +141,7 @@ RUN conda install --quiet --yes \
     'joblib' \
     'ipyparallel' \
     'pybind11' \
-    'cppimport' \
+#    'cppimport' \
     'xlrd'  && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy
