@@ -346,6 +346,7 @@ RUN apt-get update \
 # ggplot
 #
 RUN pip install ggplot
+RUN pip install cppimport
 
 
 #------end Duke-specific additions ---
