@@ -130,7 +130,6 @@ RUN conda install --quiet --yes \
     'hdf5=1.8.17' \
     'h5py=2.6*' \
     'vincent=0.4.*' \
-    'pgmpy' \
     'beautifulsoup4=4.5.*' \
     'openpyxl' \
     'pandas-datareader' \
