@@ -348,6 +348,8 @@ RUN apt-get update \
 RUN pip install ggplot
 RUN pip install cppimport
 
+# pgmpy is not available in anaconda, so we use pip to install it
+RUN pip install pgmpy
 
 #------end Duke-specific additions ---
 
