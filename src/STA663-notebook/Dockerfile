@@ -385,5 +385,5 @@ RUN cd /sparkmagic/sparkmagic ; \
 #------end Duke-specific additions ---
 
 # Switch back to jovyan to avoid accidental container runs as root
-USER $NB_USER
+USER jovyan
 
