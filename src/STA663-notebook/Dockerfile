@@ -363,7 +363,7 @@ RUN cd /sparkmagic ; \
 
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension 
 RUN cd /sparkmagic/sparkmagic ; \
-    jupyter-kernelspec install sparkmagic/kernels/pysparkkernel ; \
+    jupyter-kernelspec install sparkmagic/kernels/pysparkkernel \
 
 # skip the Spark and SparkR kernel's for now - pyspark is enough for this course
 #RUN cd /sparkmagic/sparkmagic ; \
