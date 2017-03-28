@@ -351,6 +351,37 @@ RUN pip install cppimport
 # pgmpy is not available in anaconda, so we use pip to install it
 RUN pip install pgmpy
 
+#--- start spark support
+# install the dev version of the spark magic 
+USER root
+RUN cd / ; \
+   git clone https://github.com/jupyter-incubator/sparkmagic.git
+RUN cd /sparkmagic ; \
+   pip install -e hdijupyterutils ; \ 
+   pip install -e autovizwidget ; \
+   pip install -e sparkmagic
+
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension 
+RUN cd /sparkmagic/sparkmagic ; \
+    jupyter-kernelspec install sparkmagic/kernels/pysparkkernel ; \
+
+# skip the Spark and SparkR kernel's for now - pyspark is enough for this course
+#RUN cd /sparkmagic/sparkmagic ; \
+#    jupyter-kernelspec install sparkmagic/kernels/sparkkernel 
+#RUN cd /sparkmagic/sparkmagic ; \
+#    jupyter-kernelspec install sparkmagic/kernels/sparkrkernel
+
+##### conda version of the spark magic is not that good, but in case someone cares:
+####RUN pip install  sparkmagic
+####RUN cd /opt/conda/lib/python3.5/site-packages ; \
+####    jupyter-kernelspec install sparkmagic/kernels/sparkkernel \
+####     jupyter-kernelspec install sparkmagic/kernels/pysparkkernel \
+####     jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel \
+####     jupyter-kernelspec install sparkmagic/kernels/sparkrkernel
+
+#--- end spark support
+
+
 #------end Duke-specific additions ---
 
 # Switch back to jovyan to avoid accidental container runs as root
