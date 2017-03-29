@@ -223,6 +223,13 @@ RUN echo "deb http://ppa.launchpad.net/staticfloat/juliareleases/ubuntu trusty m
     julia \
     libnettle4 && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+    
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    graphviz \
+    libgraphviz-dev \
+    pkg-config && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
 
@@ -350,7 +357,7 @@ RUN pip install cppimport
 
 # pgmpy is not available in anaconda, so we use pip to install it
 RUN pip install pgmpy
-
+RUN pip install pygraphviz
 #--- start spark support
 # install the dev version of the spark magic 
 USER root
