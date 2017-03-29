@@ -357,7 +357,7 @@ RUN pip install cppimport
 
 # pgmpy is not available in anaconda, so we use pip to install it
 RUN pip install pgmpy
-
+RUN pip install pygraphviz
 #--- start spark support
 # install the dev version of the spark magic 
 USER root
