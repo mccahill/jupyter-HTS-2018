@@ -358,6 +358,14 @@ RUN pip install cppimport
 # pgmpy is not available in anaconda, so we use pip to install it
 RUN pip install pgmpy
 RUN pip install pygraphviz
+
+# Probabilistic programmming
+RUN pip install tensorflow
+RUN pip  install edward
+RUN pip install daft
+RUN pip install pymc3
+RUN pip install pystan
+
 #--- start spark support
 # install the dev version of the spark magic 
 USER root
