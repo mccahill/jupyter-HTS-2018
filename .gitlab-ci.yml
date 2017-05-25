@@ -4,11 +4,7 @@ before_script:
 
 stages:
   - build
-  - build2
-  - build3
   - deploy_staging
-  - deploy_staging2
-  - deploy_staging3
   - deploy
 
 build:
@@ -21,27 +17,8 @@ build:
     - cd src/STA663-notebook; pwd; ls -la
     - ./build-test
 
-build2:
-  tags: 
-    - production2
-    - jupyter-STA663
-  stage: build
-  script: 
-    - echo "Building the app in staging"
-    - cd src/STA663-notebook; pwd; ls -la
-    - ./build-test
 
-build3:
-  tags: 
-    - production3
-    - jupyter-STA663
-  stage: build
-  script: 
-    - echo "Building the app in staging"
-    - cd src/STA663-notebook; pwd; ls -la
-    - ./build-test
-
-deploy_staging1:
+deploy_staging:
   tags: 
     - production1
     - jupyter-STA663
@@ -54,34 +31,8 @@ deploy_staging1:
   only:
   - staging
 
-deploy_staging2:
-  tags: 
-    - production2
-    - jupyter-STA663
-  stage: deploy
-  script:
-    - echo "Deploy to staging server"
-    - cd docker-scripts; pwd; ls -la; ./run-test-instance
-  environment:
-    name: staging
-  only:
-  - staging
 
-deploy_staging3:
-  tags: 
-    - production3
-    - jupyter-STA663
-  stage: deploy
-  script:
-    - echo "Deploy to staging server"
-    - cd docker-scripts; pwd; ls -la; ./run-test-instance
-  environment:
-    name: staging
-  only:
-  - staging
-
-
-deploy_production1:
+deploy_production:
   tags: 
     - production1
     - jupyter-STA663
@@ -98,36 +49,3 @@ deploy_production1:
   only:
   - master
 
-deploy_production2:
-  tags: 
-    - production2
-    - jupyter-STA663
-  stage: deploy
-  script:
-    - echo "Building the production app"
-    - cd src/STA663-notebook; pwd; ls -la
-    - ./build-production
-    - echo "Deploy to production server"
-    - cd /srv/persistent-data/docker-scripts; ./run-everything
-  environment:
-    name: production
-  when: manual
-  only:
-  - master
-
-deploy_production3:
-  tags: 
-    - production3
-    - jupyter-STA663
-  stage: deploy
-  script:
-    - echo "Building the production app"
-    - cd src/STA663-notebook; pwd; ls -la
-    - ./build-production
-    - echo "Deploy to production server"
-    - cd /srv/persistent-data/docker-scripts; ./run-everything
-  environment:
-    name: production
-  when: manual
-  only:
-  - master
