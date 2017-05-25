@@ -1,8 +1,8 @@
-Source for the STA663 course's Jupyter notebook docker 
+Source for the HTS-2017 course's Jupyter notebook docker 
 containers is found in
 
 ```
-    ./src/STA663-notebook
+    ./src/HTS-2017-notebook
 ```
 
 Note that in addition to the Jupyter notebook container we
@@ -15,6 +15,6 @@ provisioning the whole service onto arbitraty VMs.
 So you probably don't need to look at or worry about anything except
 
 ```
-    ./src/STA663-notebook
+    ./src/HTS-2017-notebook
 ```
 

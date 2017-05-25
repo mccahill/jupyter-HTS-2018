@@ -11,7 +11,7 @@
           -e MAP_VIRTUAL_PORT=443 \
           -v /srv/persistent-data/homedirs/monitoring-user\:/home/jovyan/work \
           -e NB_UID=1000 \
-          -t jupyter-sta663
+          -t jupyter-hts-2017
 #
 # now loop through the actual user mappings
 #
@@ -30,7 +30,7 @@ do
           -e MAP_VIRTUAL_PORT=40$port \
           -v /srv/persistent-data/homedirs/user$port\:/home/jovyan/work \
           -e NB_UID=1000 \
-          -t jupyter-sta663 
+          -t jupyter-hts-2017 
 
         sleep 3
 done < $INPUT
