@@ -10,6 +10,7 @@
           -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:443 \
           -e MAP_VIRTUAL_PORT=443 \
           -v /srv/persistent-data/homedirs/monitoring-user\:/home/jovyan/work \
+          -v /srv/persistent-data/homedirs/shared_space\:/shared_space \
           -e NB_UID=1000 \
           -t jupyter-hts-2017
 #
@@ -29,6 +30,7 @@ do
           -e VIRTUAL_HOST=ipynb-az-06.oit.duke.edu\:40$port \
           -e MAP_VIRTUAL_PORT=40$port \
           -v /srv/persistent-data/homedirs/user$port\:/home/jovyan/work \
+          -v /srv/persistent-data/homedirs/shared_space\:/shared_space \
           -e NB_UID=1000 \
           -t jupyter-hts-2017 
 
