@@ -24,6 +24,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     vim \
     jed \
     emacs \
+    xclip \
     build-essential \
     python-dev \
     unzip \
