@@ -20,6 +20,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     sudo \
     locales \
     git \
+    ssh \
     vim \
     jed \
     emacs \
@@ -116,30 +117,30 @@ RUN conda install --quiet --yes \
     'matplotlib=1.5*' \
     'scipy=0.17*' \
     'seaborn=0.7*' \
-    'scikit-learn=0.17*' \
-    'scikit-image=0.11*' \
-    'sympy=1.0*' \
-    'cython=0.23*' \
+#    'scikit-learn=0.17*' \
+#    'scikit-image=0.11*' \
+#    'sympy=1.0*' \
+#    'cython=0.23*' \
     'patsy=0.4*' \
     'statsmodels=0.6*' \
-    'cloudpickle=0.1*' \
-    'dill=0.2*' \
+#    'cloudpickle=0.1*' \
+#    'dill=0.2*' \
     'numba=0.23*' \
     'bokeh=0.11*' \
-    'sqlalchemy=1.0*' \
-    'hdf5=1.8.17' \
-    'h5py=2.6*' \
-    'vincent=0.4.*' \
-    'beautifulsoup4=4.5.*' \
-    'openpyxl' \
+#    'sqlalchemy=1.0*' \
+#    'hdf5=1.8.17' \
+#    'h5py=2.6*' \
+#    'vincent=0.4.*' \
+#    'beautifulsoup4=4.5.*' \
+#    'openpyxl' \
     'pandas-datareader' \
-    'ipython-sql' \
-    'pandasql' \
+#    'ipython-sql' \
+#    'pandasql' \
     'memory_profiler'\
     'psutil' \
-    'cythongsl' \
+#    'cythongsl' \
     'joblib' \
-    'ipyparallel' \
+#    'ipyparallel' \
     'pybind11' \
 #    'cppimport' \
     'xlrd'  && \
@@ -163,22 +164,22 @@ RUN conda create --quiet --yes -p $CONDA_DIR/envs/python2 python=2.7 \
     'matplotlib=1.5*' \
     'scipy=0.17*' \
     'seaborn=0.7*' \
-    'scikit-learn=0.17*' \
-    'scikit-image=0.11*' \
-    'sympy=1.0*' \
-    'cython=0.23*' \
+#    'scikit-learn=0.17*' \
+#    'scikit-image=0.11*' \
+#    'sympy=1.0*' \
+#    'cython=0.23*' \
     'patsy=0.4*' \
     'statsmodels=0.6*' \
-    'cloudpickle=0.1*' \
-    'dill=0.2*' \
+#    'cloudpickle=0.1*' \
+#    'dill=0.2*' \
     'numba=0.23*' \
     'bokeh=0.11*' \
-    'hdf5=1.8.17' \
-    'h5py=2.6*' \
-    'sqlalchemy=1.0*' \
-    'pyzmq' \
-    'vincent=0.4.*' \
-    'beautifulsoup4=4.5.*' \
+#    'hdf5=1.8.17' \
+#    'h5py=2.6*' \
+#    'sqlalchemy=1.0*' \
+#    'pyzmq' \
+#    'vincent=0.4.*' \
+#    'beautifulsoup4=4.5.*' \
     'xlrd' && \
     conda remove -n python2 --quiet --yes --force qt pyqt && \
     conda clean -tipsy
@@ -301,11 +302,11 @@ RUN apt-get update \
 # ggplot
 #
 RUN pip install ggplot
-RUN pip install cppimport
+#RUN pip install cppimport
 
 # pgmpy is not available in anaconda, so we use pip to install it
-RUN pip install pgmpy
-RUN pip install pygraphviz
+#RUN pip install pgmpy
+#RUN pip install pygraphviz
 
 ####### start HTS-summer-2017 additions
 
