@@ -70,8 +70,8 @@ USER $NB_USER
 # Setup jovyan home directory
 RUN mkdir /home/$NB_USER/work && \
     mkdir /home/$NB_USER/.jupyter && \
-    mkdir /home/$NB_USER/work/.ssh && \
-    printf "Host gitlab.oit.duke.edu \n \t IdentityFile ~work/HTSgitlab.key" && \
+    mkdir /home/$NB_USER/.ssh && \
+    printf "Host gitlab.oit.duke.edu \n \t IdentityFile ~work/HTSgitlab.key"  > /home/$NB_USER/.ssh/config && \
     echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc
 
 # Install conda as jovyan
