@@ -98,7 +98,7 @@ RUN conda install --quiet --yes \
     
 #----------- we want conda-build so the source cache will be cleaned
 RUN conda install --quiet --yes \
-    -c anaconda conda-build=2.1.15 \
+    -c anaconda conda-build=2.1.15 
 
 #----------- scipy
 USER root
