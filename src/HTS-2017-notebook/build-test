@@ -1,1 +1,2 @@
+sudo docker rmi jupyter-test
 sudo docker build --tag jupyter-test .
