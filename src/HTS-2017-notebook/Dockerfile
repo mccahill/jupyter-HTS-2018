@@ -236,9 +236,10 @@ RUN conda config --add channels r && \
     'r-irkernel=0.7*' \
     'r-plyr=1.8*' \
     'r-devtools=1.11*' \
-    'r-dplyr=0.4*' \
-    'r-ggplot2=2.1*' \
-    'r-tidyr=0.5*' \
+#    'r-dplyr=0.4*' \
+#    'r-ggplot2=2.1*' \
+#    'r-tidyr=0.5*' \
+    'r-tidyverse=1.1.1' \
     'r-shiny=0.13*' \
     'r-rmarkdown=0.9*' \
     'r-forecast=7.1*' \
