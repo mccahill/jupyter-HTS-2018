@@ -71,7 +71,7 @@ USER $NB_USER
 RUN mkdir /home/$NB_USER/work && \
     mkdir /home/$NB_USER/.jupyter && \
     mkdir /home/$NB_USER/.ssh && \
-    printf "Host gitlab.oit.duke.edu \n \t IdentityFile ~work/HTSgitlab.key"  > /home/$NB_USER/.ssh/config && \
+    printf "Host gitlab.oit.duke.edu \n \t IdentityFile ~/work/HTSgitlab.key"  > /home/$NB_USER/.ssh/config && \
     echo "cacert=/etc/ssl/certs/ca-certificates.crt" > /home/$NB_USER/.curlrc
 
 # Install conda as jovyan
@@ -236,9 +236,10 @@ RUN conda config --add channels r && \
     'r-irkernel=0.7*' \
     'r-plyr=1.8*' \
     'r-devtools=1.11*' \
-    'r-dplyr=0.4*' \
-    'r-ggplot2=2.1*' \
-    'r-tidyr=0.5*' \
+#    'r-dplyr=0.4*' \
+#    'r-ggplot2=2.1*' \
+#    'r-tidyr=0.5*' \
+    'r-tidyverse=1.*' \
     'r-shiny=0.13*' \
     'r-rmarkdown=0.9*' \
     'r-forecast=7.1*' \
