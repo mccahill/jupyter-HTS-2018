@@ -18,7 +18,7 @@ build1:
     - ./build-test
 
 
-build2:
+.build2:
   tags: 
     - production2
     - jupyter-HTS-2017
@@ -43,7 +43,7 @@ deploy_staging1:
   - staging
 
 
-deploy_staging2:
+.deploy_staging2:
   tags: 
     - production2
     - jupyter-HTS-2017
@@ -74,7 +74,7 @@ deploy_production1:
   only:
   - master
 
-deploy_production2:
+.deploy_production2:
   tags: 
     - production2
     - jupyter-HTS-2017
