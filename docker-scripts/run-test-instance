@@ -12,6 +12,7 @@ sudo docker rm jupyter-test-443
           -e MAP_VIRTUAL_PORT=443 \
           -v /srv/persistent-data/homedirs/monitoring-user/work\:/home/jovyan/work \
           -v /srv/persistent-data/homedirs/shared_space\:/shared_space \
+          -v /srv/persistent-data/homedirs/2015_data\:/data/:ro \
           -e NB_UID=1000 \
           -t jupyter-test
 
