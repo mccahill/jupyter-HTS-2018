@@ -239,7 +239,6 @@ RUN conda config --add channels r && \
 #    'r-dplyr=0.4*' \
 #    'r-ggplot2=2.1*' \
 #    'r-tidyr=0.5*' \
-     'r-tidyverse=1.1.*' \
     'r-shiny=0.13*' \
     'r-rmarkdown=0.9*' \
     'r-forecast=7.1*' \
@@ -250,6 +249,10 @@ RUN conda config --add channels r && \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-randomforest=4.6*' && conda clean -tipsy
+
+RUN conda config --add channels r && \
+    conda install --quiet --yes -c conda-forge \
+    'r-tidyverse=1.1.*'  && conda clean -tipsy
 
 #----------- end datascience
 
