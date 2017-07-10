@@ -232,7 +232,7 @@ USER $NB_USER
 RUN conda config --add channels r && \
     conda install --quiet --yes \
     'rpy2=2.8*' \
-    'r-base=3.3*' \
+    'r-base=3.3.1.1' \
     'r-irkernel=*' \
     'r-plyr=1.8*' \
     'r-devtools=1.11*' \
