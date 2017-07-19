@@ -249,7 +249,6 @@ RUN conda config --add channels r && \
     'r-nycflights13=0.2*' \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
-    'r-pwr=*' \
     'r-randomforest=4.6*' && conda clean -tipsy
 
 #RUN conda config --add channels r && \
@@ -370,7 +369,7 @@ RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend
     repos='https://cran.revolutionanalytics.com/', \
     dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db'))"
+    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets'))"
 
 
 USER $NB_USER
