@@ -233,14 +233,14 @@ RUN conda config --add channels r && \
     conda install --quiet --yes \
     'rpy2=2.8*' \
     'r-base=3.3.1 1' \
-    'r-irkernel=0.7*' \
+    'r-irkernel=*' \
     'r-plyr=1.8*' \
     'r-devtools=1.11*' \
 #    'r-dplyr=0.4*' \
 #    'r-ggplot2=2.1*' \
 #    'r-tidyr=0.5*' \
-    'r-tidyverse=1.*' \
     'r-shiny=0.13*' \
+    'r-tidyverse=1.0.0' \
     'r-rmarkdown=0.9*' \
     'r-forecast=7.1*' \
     'r-stringr=1.0*' \
@@ -250,6 +250,10 @@ RUN conda config --add channels r && \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-randomforest=4.6*' && conda clean -tipsy
+
+#RUN conda config --add channels r && \
+#    conda install --quiet --yes -c conda-forge \
+#    'r-tidyverse=1.1.*'  && conda clean -tipsy
 
 #----------- end datascience
 
@@ -365,7 +369,7 @@ RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend
     repos='https://cran.revolutionanalytics.com/', \
     dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db'))"
+    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets'))"
 
 
 USER $NB_USER
