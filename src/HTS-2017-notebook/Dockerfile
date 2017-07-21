@@ -37,6 +37,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     texlive-generic-recommended \
     libxrender1 \
     inkscape \
+    rsync \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
