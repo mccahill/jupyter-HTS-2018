@@ -366,7 +366,7 @@ RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.4.3/sratoolkit.2.4.3-ubuntu
     echo "test sra-toolkit with the following command:"; \
     echo "fastq-dump -X 5 -Z SRR390728"
 
-RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr'), \
+RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr', 'caret', 'ROCR'), \
     repos='https://cran.revolutionanalytics.com/', \
     dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
