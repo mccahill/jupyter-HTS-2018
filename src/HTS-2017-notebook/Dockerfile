@@ -329,6 +329,7 @@ RUN apt-get update && \
     fastqc default-jre \
     bwa \
     samtools \
+    circos \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 #     tophat \
