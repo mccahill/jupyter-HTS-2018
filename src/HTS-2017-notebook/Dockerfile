@@ -401,4 +401,3 @@ ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
 # Switch back to jovyan to avoid accidental container runs as root
 USER jovyan
 
-
