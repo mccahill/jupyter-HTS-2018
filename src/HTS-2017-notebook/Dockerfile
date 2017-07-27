@@ -337,7 +337,18 @@ RUN apt-get update && \
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/sources.list.d/backports.list && \
     apt-get update && \
-    apt-get -t jessie-backports install -y --no-install-recommends tophat \
+    apt-get -t jessie-backports install -y --no-install-recommends \
+    tophat \
+    bwa \
+    samtools \
+    tabix \
+    picard-tools \
+    openjdk-8-jdk \
+    openjdk-8-jre \
+    sra-toolkit \
+    bcftools \
+    bedtools \
+    vcftools \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 #     tophat \
