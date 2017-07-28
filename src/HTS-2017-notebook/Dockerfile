@@ -332,13 +332,10 @@ RUN apt-get update && \
     circos \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-#     tophat \
-
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/sources.list.d/backports.list && \
     apt-get update && \
     apt-get -t jessie-backports install -y --no-install-recommends \
-    tophat \
     bwa \
     samtools \
     tabix \
@@ -349,34 +346,10 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
     bcftools \
     bedtools \
     vcftools \
+    seqtk \
+    ea-utils \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-#     tophat \
-
-
-# apt-get -t jessie-backports install "package"
-
-
-
-### ea-utils (fastq-mcf,etc.)
-RUN wget "https://drive.google.com/uc?export=download&id=0B7KhouP0YeRAc2xackxzRnFrUEU" -O ea-utils.1.1.2-806.tar.gz; \
-    tar -xvf ea-utils.1.1.2-806.tar.gz ; \
-    cd ea-utils.1.1.2-806; \
-    make; \
-    cp -a fastq-*   /usr/local/bin/; \
-    cd ~; \
-    rm -rf ea-utils.1.1.2-806 ea-utils.1.1.2-806.tar.gz
-
-### sra-toolkit
-## apt-get -q -y  install sra-toolkit
-RUN wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.4.3/sratoolkit.2.4.3-ubuntu64.tar.gz; \
-    tar -zxf sratoolkit.2.4.3-ubuntu64.tar.gz; \
-    cp -r sratoolkit.2.4.3-ubuntu64/bin/*  /usr/local/bin/; \
-    rm sratoolkit.2.4.3-ubuntu64.tar.gz; \
-    rm -r sratoolkit.2.4.3-ubuntu64; \
-    vdb-config --restore-defaults; \
-    echo "test sra-toolkit with the following command:"; \
-    echo "fastq-dump -X 5 -Z SRR390728"
 
 RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr', 'caret', 'ROCR'), \
     repos='https://cran.revolutionanalytics.com/', \
@@ -398,7 +371,7 @@ USER root
 # switching at runtime.
 # RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install
 
-RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython
+RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds pysam
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds biopython
 
