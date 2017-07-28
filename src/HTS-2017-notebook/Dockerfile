@@ -332,13 +332,10 @@ RUN apt-get update && \
     circos \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-#     tophat \
-
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/sources.list.d/backports.list && \
     apt-get update && \
     apt-get -t jessie-backports install -y --no-install-recommends \
-    tophat \
     bwa \
     samtools \
     tabix \
@@ -349,6 +346,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
     bcftools \
     bedtools \
     vcftools \
+    seqtk \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 #     tophat \
@@ -398,7 +396,7 @@ USER root
 # switching at runtime.
 # RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install
 
-RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython
+RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds pysam
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds biopython
 
