@@ -374,7 +374,7 @@ USER root
 # test to see if this will fix the problem in singularity
 RUN conda install -c conda-forge \
   icu=56.1  \
-  reetype=2.6.3 \
+  freetype=2.6.3 \
   harfbuzz=1.3.4 \
   libxml2=2.9.4
 # end test for singularity
