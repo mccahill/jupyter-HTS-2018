@@ -40,7 +40,7 @@ docker run -d -p 8888:8888 \
   mccahill/jupyter-hts-2017 
 ```
 
-It would be better either configure HTTPS (see the options below) or run an Nginx proxy in front of the container instance so you get https (encryption) instead of http.
+Of course, it would be better either configure HTTPS (see the options section below) or run an Nginx proxy in front of the container instance so you get https (encryption) instead of http.
 
 ## Options
 
