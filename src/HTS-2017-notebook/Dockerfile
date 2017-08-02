@@ -355,7 +355,7 @@ RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend
     repos='https://cran.revolutionanalytics.com/', \
     dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets'))"
+    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets', 'limma'))"
 
 
 USER $NB_USER
