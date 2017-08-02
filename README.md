@@ -1,4 +1,17 @@
-#HTS Jupyter notebook container
+# HTS Jupyter notebook container
+
+As part of the National Institutes of Health (NIH) Big Data to Knowledge (BD2K)
+initiative, the Department of Biostatistics and Bioinformatics, together with 
+faculty from the Duke Center for Genomic and Computational Biology, has been 
+funded to host a 6-week summer course from July 5–August 10 2017 on 
+High Throughput Sequencing (HTS). Our goal is to teach the next generation 
+of scientists the biological, statistical, computational and informatics 
+knowledge for implementing a well-designed genomics experiment.
+
+     https://biostat.duke.edu/education/high-throughput-sequencing-course
+
+This is the source for the Docker container used to run the course Jupyter
+notebooks.
 
 This is based on the Minimal Jupyter Notebook Stack
 
