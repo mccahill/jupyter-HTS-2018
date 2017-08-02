@@ -373,7 +373,7 @@ USER root
 
 # test to see if this will fix the problem in singularity
 RUN conda install -c conda-forge \
-  icu=54.1  
+  icu=54.1-0  
 # end test for singularity
   
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
