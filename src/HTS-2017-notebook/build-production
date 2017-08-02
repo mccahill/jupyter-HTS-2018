@@ -1,3 +1,0 @@
-sudo docker rmi jupyter-hts-2017-old
-sudo docker tag jupyter-hts-2017 jupyter-hts-2017-old
-sudo docker build --tag jupyter-hts-2017 .
