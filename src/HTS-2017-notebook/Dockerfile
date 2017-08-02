@@ -370,11 +370,6 @@ USER root
 # Install Python 2 kernel spec globally to avoid permission problems when NB_UID
 # switching at runtime.
 # RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install
-
-# test to see if this will fix the problem in singularity
-RUN conda install -c conda-forge \
-  icu=54.1-0  
-# end test for singularity
   
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds pysam
