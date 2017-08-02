@@ -11,9 +11,9 @@ knowledge for implementing a well-designed genomics experiment.
      https://biostat.duke.edu/education/high-throughput-sequencing-course
 
 This is the source for the Docker container used to run the course Jupyter
-notebooks.
+notebooks. This is based on the Minimal Jupyter Notebook Stack from
 
-This is based on the Minimal Jupyter Notebook Stack
+    https://github.com/jupyter/docker-stacks
 
 ## What it Gives You
 
