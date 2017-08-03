@@ -355,7 +355,8 @@ RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend
     repos='https://cran.revolutionanalytics.com/', \
     dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets'))"
+    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets', \
+    'ggbio', 'limma'))"
 
 
 USER $NB_USER
@@ -370,7 +371,7 @@ USER root
 # Install Python 2 kernel spec globally to avoid permission problems when NB_UID
 # switching at runtime.
 # RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install
-
+  
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds pysam
 # RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds biopython

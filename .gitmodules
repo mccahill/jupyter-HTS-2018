@@ -7,6 +7,3 @@
 [submodule "src/docker-gen"]
 	path = src/docker-gen
 	url = http://gitlab.oit.duke.edu/mccahill/docker-gen.git
-[submodule "src/mysql"]
-	path = src/mysql
-	url = https://github.com/docker-library/mysql.git
