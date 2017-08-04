@@ -330,6 +330,7 @@ RUN apt-get update && \
     bwa \
     samtools \
     circos \
+    parallel \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
