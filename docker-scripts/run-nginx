@@ -1,3 +1,0 @@
-sudo docker run -d -p 80:80 -p 443:443 -p 51000-51024:51000-51024 --name nginx -v \
- /srv/persistent-data/docker-scripts/nginx/:/etc/nginx/conf.d -t nginx
-

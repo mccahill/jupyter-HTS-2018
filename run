@@ -1,0 +1,6 @@
+sudo docker run --name jupyter-hts-2017 \
+  -d -p 9999:8888 \
+  -e PASSWORD="badpassword" \
+  -v /your_homedir_path_here:/home/jovyan/work \
+  -e NB_UID=1000 \
+  mccahill/jupyter-hts-2017 

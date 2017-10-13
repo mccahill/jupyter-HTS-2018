@@ -1,4 +1,0 @@
-sudo docker run --name mysqlserver -e MYSQL_ROOT_PASSWORD=Lxn1r35p9asSToEKnn48II8oYpEQYU \
-   -v /srv/persistent-data/mysql_persistant_data:/var/lib/mysql \
-   -d mysql:5.5
-
