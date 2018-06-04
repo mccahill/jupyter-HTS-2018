@@ -38,7 +38,6 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     libxrender1 \
     inkscape \
     rsync \
-    rna-star \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -351,6 +350,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
     vcftools \
     seqtk \
     ea-utils \
+    rna-star \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
