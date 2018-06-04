@@ -328,8 +328,6 @@ RUN apt-get update && \
     libgsl0-dev \
     fastqc default-jre \
     openjdk-7-jdk \
-    bwa \
-    samtools \
     circos \
     parallel \
     && apt-get clean && \
