@@ -1,1 +1,1 @@
-sudo docker build --tag jupyter-hts-2017 .
+sudo docker build --tag jupyter-hts-2018 .

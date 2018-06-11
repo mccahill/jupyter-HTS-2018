@@ -27,7 +27,7 @@ notebooks. This is based on the Minimal Jupyter Notebook Stack from
 The following command starts a container with the Notebook server listening for HTTP connections on port 8888 without authentication configured.
 
 ```
-docker run -d -p 8888:8888 mccahill/jupyter-hts-2017
+docker run -d -p 8888:8888 mccahill/jupyter-hts-2018
 ```
 
 But you probably want to run the container something like this so that there is at least a password and you map a persistent directory to hold your notebooks in the container:
@@ -37,7 +37,7 @@ docker run -d -p 8888:8888 \
   -e PASSWORD="badpassword" \
   -v /your_homedir_path_here:/home/jovyan/work \
   -e NB_UID=1000 \
-  mccahill/jupyter-hts-2017 
+  mccahill/jupyter-hts-2018 
 ```
 
 Of course, it would be better either configure HTTPS (see the options section below) or run an Nginx proxy in front of the container instance so you get https (encryption) instead of http.
