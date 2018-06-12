@@ -40,6 +40,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     rsync \
     gzip \
     gtar \
+    apt-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
