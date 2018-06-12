@@ -323,7 +323,6 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     less \
     make \
-    git \
     libxml2-dev \
     libgsl0-dev \
     fastqc default-jre \
