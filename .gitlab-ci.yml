@@ -42,7 +42,7 @@ test_deploy_staging:
   script:
     - echo "Building the production app"
     - pwd; ls -la
-    - ./build
+    - ./build_production
   environment:
     name: production
   only:
