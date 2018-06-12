@@ -383,6 +383,10 @@ RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/
 # add htseq-count to path
 ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
 
+# directories to hold data for the students and a common shared space
+RUN mkdir /data && \
+    mkdir /shared_space 
+
 ####### end HTS-summer-2018 additions
 
 #------end Duke-specific additions ---
