@@ -15,7 +15,7 @@ IFS=$OLDIFS
 
 echo ipyn-az-$MYHOSTID.oit.duke.edu:443
 sudo docker kill jupyter-hts-2018-test-443
-sudo docker rm jupyter-hts-2018-testt-443
+sudo docker rm jupyter-hts-2018-test-443
 sudo docker run --name jupyter-hts-2018-test-443 \
   -d -p 127.0.0.1\:\:8888 \
   --memory 5000M \
