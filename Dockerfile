@@ -38,6 +38,8 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     libxrender1 \
     inkscape \
     rsync \
+    gzip \
+    gtar \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
