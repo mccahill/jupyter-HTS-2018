@@ -39,7 +39,7 @@ RUN REPO=http://cdn-fastly.deb.debian.org \
     inkscape \
     rsync \
     gzip \
-    gtar \
+    tar \
     apt-utils \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
