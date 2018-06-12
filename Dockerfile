@@ -87,7 +87,7 @@ RUN cd /tmp && \
     rm Miniconda3-4.3.30-Linux-x86_64.sh && \
     $CONDA_DIR/bin/conda install --quiet --yes conda==4.3.30 && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
-    $CONDA_DIR/bin/conda config --system --set auto_update_conda false # && \
+    $CONDA_DIR/bin/conda config --system --set auto_update_conda false 
     # conda clean -tipsy
 
 # Temporary workaround for https://github.com/jupyter/docker-stacks/issues/210
@@ -359,9 +359,10 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr', 'caret', 'ROCR'), \
-    repos='https://cran.revolutionanalytics.com/', \
-    dependencies=TRUE)"
+#  this part of the build hangs seemingly forever - so comment it out for now
+# RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr', 'caret', 'ROCR'), \
+#    repos='https://cran.revolutionanalytics.com/', \
+#    dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
     biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets', \
     'ggbio', 'limma'))"
