@@ -14,9 +14,9 @@ done < $INPUT
 IFS=$OLDIFS
 
 echo ipyn-az-$MYHOSTID.oit.duke.edu:443
-sudo docker kill jupyter-r-python-test-443
-sudo docker rm jupyter-r-python-test-443
-sudo docker run --name jupyter-r-python-test-443 \
+sudo docker kill jupyter-hts-2018-test-443
+sudo docker rm jupyter-hts-2018-testt-443
+sudo docker run --name jupyter-hts-2018-test-443 \
   -d -p 127.0.0.1\:\:8888 \
   --memory 5000M \
   -e PASSWORD=$STAGING_TEST_PASSWORD \
@@ -24,6 +24,8 @@ sudo docker run --name jupyter-r-python-test-443 \
   -e VIRTUAL_HOST=ipyn-az-$MYHOSTID.oit.duke.edu\:443 \
   -e MAP_VIRTUAL_PORT=443 \
   -v /srv/persistent-data/homedirs/monitoring-user/work\:/home/jovyan/work \
+  -v /srv/persistent-data/homedirs/shared_space_2018\:/shared_space \
+  -v /srv/persistent-data/homedirs/2015_data\:/data/:ro \
   -e NB_UID=1000 \
-  -t jupyter-r-python-test
+  -t jupyter-hts-2018-test
 

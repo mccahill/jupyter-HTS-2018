@@ -377,13 +377,8 @@ RUN mkdir -p $HOME/.ipython/profile_default/startup
 
 USER root
 
-# Install Python 2 kernel spec globally to avoid permission problems when NB_UID
-# switching at runtime.
-# RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install
   
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
-# RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds pysam
-# RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds biopython
 
 # add htseq-count to path
 ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
