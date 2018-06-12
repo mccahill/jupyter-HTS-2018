@@ -78,14 +78,14 @@ RUN mkdir /home/$NB_USER/work && \
 # Install conda as jovyan
 RUN cd /tmp && \
     mkdir -p $CONDA_DIR && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.1.11-Linux-x86_64.sh && \
-    echo "efd6a9362fc6b4085f599a881d20e57de628da8c1a898c08ec82874f3bad41bf *Miniconda3-4.1.11-Linux-x86_64.sh" | sha256sum -c - && \
-    /bin/bash Miniconda3-4.1.11-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-4.1.11-Linux-x86_64.sh && \
-    $CONDA_DIR/bin/conda install --quiet --yes conda==4.1.11 && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.30-Linux-x86_64.sh && \
+    # echo "bd1655b4b313f7b2a1f2e15b7b925d03 *Miniconda3-4.3.30-Linux-x86_64.sh" | sha256sum -c - && \
+    /bin/bash Miniconda3-4.3.30-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
+    rm Miniconda3-4.3.30-Linux-x86_64.sh && \
+    $CONDA_DIR/bin/conda install --quiet --yes conda==4.3.30 && \
     $CONDA_DIR/bin/conda config --system --add channels conda-forge && \
-    $CONDA_DIR/bin/conda config --system --set auto_update_conda false && \
-    conda clean -tipsy
+    $CONDA_DIR/bin/conda config --system --set auto_update_conda false # && \
+    # conda clean -tipsy
 
 # Temporary workaround for https://github.com/jupyter/docker-stacks/issues/210
 # Stick with jpeg 8 to avoid problems with R packages
@@ -93,9 +93,11 @@ RUN echo "jpeg 8*" >> /opt/conda/conda-meta/pinned
 
 # Install Jupyter notebook as jovyan
 RUN conda install --quiet --yes \
-    'notebook=4.2*' \
-    jupyterhub=0.7 \
-    && conda clean -tipsy
+    'jupyter' 
+    # 'notebook' \
+    # 'jupyterhub' \
+    # 'jupyterlab' # \
+    # && conda clean -tipsy
     
 #----------- scipy
 USER root
@@ -114,45 +116,47 @@ USER $NB_USER
 # use notebook-friendly backends in these images
 RUN conda install --quiet --yes \
     'nomkl' \
-    'ipywidgets=5.2*' \
-    'pandas=0.19*' \
-    'numexpr=2.6*' \
-    'matplotlib=1.5*' \
-    'scipy=0.17*' \
-    'seaborn=0.7*' \
-#    'scikit-learn=0.17*' \
-#    'scikit-image=0.11*' \
-#    'sympy=1.0*' \
-#    'cython=0.23*' \
-    'patsy=0.4*' \
-    'statsmodels=0.6*' \
-#    'cloudpickle=0.1*' \
-#    'dill=0.2*' \
-    'numba=0.23*' \
-    'bokeh=0.11*' \
-#    'sqlalchemy=1.0*' \
-#    'hdf5=1.8.17' \
-#    'h5py=2.6*' \
-#    'vincent=0.4.*' \
-#    'beautifulsoup4=4.5.*' \
-#    'openpyxl' \
+    'ipywidgets' \
+    'pandas' \
+    'numexpr' \
+    'matplotlib' \
+    'scipy' \
+    'seaborn' \
+    'scikit-learn' \
+    'scikit-image' \
+    'sympy' \
+    'cython' \
+    'patsy' \
+    'statsmodels' \
+    'cloudpickle' \
+    'dill' \
+    'numba' \
+    'bokeh' \
+    'sqlalchemy' \
+    'hdf5' \
+    'h5py' \
+	'pyzmq' \
+    'vincent' \
+    'beautifulsoup4' \
+    'openpyxl' \
     'pandas-datareader' \
-#    'ipython-sql' \
-#    'pandasql' \
+    'ipython-sql' \
+    'pandasql' \
     'memory_profiler'\
     'psutil' \
-#    'cythongsl' \
+    'cythongsl' \
     'joblib' \
-#    'ipyparallel' \
+    'ipyparallel' \
     'pybind11' \
-#    'cppimport' \
+    'pytables' \
+    'plotnine' \
     'xlrd'  && \
-    conda remove --quiet --yes --force qt pyqt && \
+    conda remove --quiet --yes --force qt pyqt # && \
     conda clean -tipsy
 
 # Activate ipywidgets extension in the environment that runs the notebook server
 RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix
-# RUN ipcluster nbextension  enable --user
+RUN ipcluster nbextension  enable --user
 
 
 # Install Python 2 packages
@@ -216,11 +220,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
     gfortran \
-    gcc && apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-    
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    gcc  \
     graphviz \
     libgraphviz-dev \
     pkg-config && apt-get clean && \
@@ -228,33 +228,28 @@ RUN apt-get update && \
 
 USER $NB_USER
 
-# R packages including IRKernel which gets installed globally.
-# Pin r-base to a specific build number for https://github.com/jupyter/docker-stacks/issues/210#issuecomment-246081809
-RUN conda config --add channels r && \
-    conda install --quiet --yes \
-    'rpy2=2.8*' \
-    'r-base=3.3.1 1' \
-    'r-irkernel=*' \
+# R packages
+RUN conda install  --yes \
+    'r-base=3.4.1' \
+    'r-irkernel=0.8*' \
     'r-plyr=1.8*' \
-    'r-devtools=1.11*' \
-#    'r-dplyr=0.4*' \
-#    'r-ggplot2=2.1*' \
-#    'r-tidyr=0.5*' \
-    'r-shiny=0.13*' \
-    'r-tidyverse=1.0.0' \
-    'r-rmarkdown=0.9*' \
-    'r-forecast=7.1*' \
-    'r-stringr=1.0*' \
-    'r-rsqlite=1.0*' \
+    'r-devtools=1.13*' \
+    'r-tidyverse=1.1*' \
+    'r-shiny=1.0*' \
+    'r-rmarkdown=1.8*' \
+    'r-forecast=8.2*' \
+    'r-rsqlite=2.0*' \
     'r-reshape2=1.4*' \
     'r-nycflights13=0.2*' \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
-    'r-randomforest=4.6*' && conda clean -tipsy
-
-#RUN conda config --add channels r && \
-#    conda install --quiet --yes -c conda-forge \
-#    'r-tidyverse=1.1.*'  && conda clean -tipsy
+    'r-crayon=1.3*' \
+    'r-randomforest=4.6*' \
+    'r-htmltools=0.3*' \
+    'r-sparklyr=0.7*' \
+    'r-htmlwidgets=1.0*' \
+    'r-hexbin=1.27*' && \
+    conda clean -tipsy 
 
 #----------- end datascience
 
@@ -282,11 +277,11 @@ RUN python -m bash_kernel.install
 USER root
 
 RUN conda install --yes \
-    'numpy=1.11*' \
-    'pillow=3.4*' \
-    'requests=2.12*' \
-    'nose=1.3*' \
-    'pystan=2.8*' \
+    'numpy' \
+    'pillow' \
+    'requests' \
+    'nose' \
+    'pystan' \
    && conda clean -yt
 
 USER root
@@ -306,17 +301,27 @@ RUN apt-get update \
     libeigen3-dev \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ 
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    graphviz \
+    libgraphviz-dev \
+    pkg-config && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+ 
 
+USER jovyan
 # ggplot
 #
-RUN pip install ggplot
-#RUN pip install cppimport
+#RUN pip install ggplot
+RUN pip install cppimport
 
 # pgmpy is not available in anaconda, so we use pip to install it
-#RUN pip install pgmpy
-#RUN pip install pygraphviz
+RUN pip install pgmpy
+RUN pip install pygraphviz
 
-####### start HTS-summer-2017 additions
+
+####### start HTS-summer-2018 additions
 
 USER root
 RUN apt-get update && \
@@ -379,7 +384,7 @@ RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/
 # add htseq-count to path
 ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
 
-####### end HTS-summer-2017 additions
+####### end HTS-summer-2018 additions
 
 #------end Duke-specific additions ---
 
