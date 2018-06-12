@@ -384,8 +384,9 @@ RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/
 ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
 
 # directories to hold data for the students and a common shared space
-RUN mkdir /data && \
-    mkdir /shared_space 
+#######
+# RUN mkdir /data /shared_space 
+# RUN chown jovyan /data /shared_space 
 
 ####### end HTS-summer-2018 additions
 
