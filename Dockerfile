@@ -92,7 +92,7 @@ RUN cd /tmp && \
 
 # Temporary workaround for https://github.com/jupyter/docker-stacks/issues/210
 # Stick with jpeg 8 to avoid problems with R packages
-RUN echo "jpeg 8*" >> /opt/conda/conda-meta/pinned
+### RUN echo "jpeg 8*" >> /opt/conda/conda-meta/pinned
 
 # Install Jupyter notebook as jovyan
 RUN conda install --quiet --yes \
