@@ -338,6 +338,7 @@ RUN apt-get update && \
     circos \
     parallel \
     time \
+    htop \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
