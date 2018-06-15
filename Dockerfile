@@ -330,6 +330,7 @@ RUN apt-get update && \
     openjdk-7-jdk \
     circos \
     parallel \
+    time \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
