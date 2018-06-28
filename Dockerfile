@@ -370,6 +370,16 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
 #     'ggbio', 'limma'))"
 
 
+# Install R and bioconductor packages for Kouros's notebooks
+RUN Rscript -e "install.packages(pkgs = c('ROCR','mvtnorm','pheatmap','formatR'), \
+            repos='https://cran.revolutionanalytics.com/', \
+            dependencies=TRUE)"
+RUN Rscript -e "install.packages(pkgs = c('dendextend'), \
+            repos='https://cran.revolutionanalytics.com/', \
+            dependencies=TRUE)"
+RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
+    biocLite(pkgs=c('golubEsets','multtest','qvalue','limma'))"
+
 USER $NB_USER
 
 
