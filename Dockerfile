@@ -365,9 +365,9 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
 # RUN Rscript -e "install.packages(pkgs = c('pwr','RColorBrewer','GSA','dendextend','pheatmap','cgdsr', 'caret', 'ROCR'), \
 #    repos='https://cran.revolutionanalytics.com/', \
 #    dependencies=TRUE)"
-RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets', \
-    'ggbio', 'limma'))"
+# RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
+#     biocLite(pkgs=c('DESeq2','qvalue','multtest','org.EcK12.eg.db','genefilter','GEOquery','KEGG.db','golubEsets', \
+#     'ggbio', 'limma'))"
 
 
 USER $NB_USER
@@ -380,6 +380,7 @@ RUN mkdir -p $HOME/.ipython/profile_default/startup
 USER root
 
 RUN conda install --quiet --yes 'nbdime' 
+RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 
 # add htseq-count to path
