@@ -371,7 +371,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
 
 
 # Install R and bioconductor packages for Kouros's notebooks
-RUN Rscript -e "install.packages(pkgs = c('ROCR','mvtnorm','pheatmap','formatR','rentrez'), \
+RUN Rscript -e "install.packages(pkgs = c('ROCR','mvtnorm','pheatmap','formatR'), \
             repos='https://cran.revolutionanalytics.com/', \
             dependencies=TRUE)"
 RUN Rscript -e "install.packages(pkgs = c('dendextend'), \
@@ -390,7 +390,7 @@ RUN mkdir -p $HOME/.ipython/profile_default/startup
 USER root
 
 RUN conda install --quiet --yes 'nbdime' 
-RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 bioconductor-pathview perl-lwp-protocol-https entrez-direct 
+RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 bioconductor-pathview perl-lwp-protocol-https entrez-direct r-rentrez
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 
 # add htseq-count to path
