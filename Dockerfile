@@ -371,7 +371,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
 
 
 # Install R and bioconductor packages for Kouros's notebooks
-RUN Rscript -e "install.packages(pkgs = c('ROCR','mvtnorm','pheatmap','formatR'), \
+RUN Rscript -e "install.packages(pkgs = c('ROCR','mvtnorm','pheatmap','formatR','rentrez'), \
             repos='https://cran.revolutionanalytics.com/', \
             dependencies=TRUE)"
 RUN Rscript -e "install.packages(pkgs = c('dendextend'), \
