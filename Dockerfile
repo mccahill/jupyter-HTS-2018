@@ -378,7 +378,7 @@ RUN Rscript -e "install.packages(pkgs = c('dendextend'), \
             repos='https://cran.revolutionanalytics.com/', \
             dependencies=TRUE)"
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); \
-    biocLite(pkgs=c('golubEsets','multtest','qvalue','limma','gage','pheatmap','pathview'))"
+    biocLite(pkgs=c('golubEsets','multtest','qvalue','limma','gage','pheatmap'))"
 
 USER $NB_USER
 
@@ -390,7 +390,7 @@ RUN mkdir -p $HOME/.ipython/profile_default/startup
 USER root
 
 RUN conda install --quiet --yes 'nbdime' 
-RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 entrez-direct
+RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 bioconductor-pathview entrez-direct 
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 
 # add htseq-count to path
