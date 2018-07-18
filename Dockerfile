@@ -358,6 +358,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >  /etc/apt/so
     seqtk \
     ea-utils \
     rna-star \
+    libcrypt-ssleay-perl \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
