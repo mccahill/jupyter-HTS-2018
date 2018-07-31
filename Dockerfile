@@ -398,7 +398,7 @@ RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/
 ENV PATH=${PATH}:$CONDA_DIR/envs/python2/bin
 
 # Setup up git auto-completion based on https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks#Auto-Completion
-wget --directory-prefix /etc/bash_completion.d/ \
+RUN wget --directory-prefix /etc/bash_completion.d/ \
      https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # directories to hold data for the students and a common shared space
