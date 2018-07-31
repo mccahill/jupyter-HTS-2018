@@ -392,7 +392,7 @@ USER root
 
 RUN conda install --quiet --yes 'nbdime' 
 RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 bioconductor-pathview r-rentrez
-RUN conda install --quiet --yes -c bioconda bioconductor-ggbio
+# RUN conda install --quiet --yes -c bioconda bioconductor-ggbio
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
 
 # add htseq-count to path
