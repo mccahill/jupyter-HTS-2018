@@ -390,9 +390,9 @@ RUN mkdir -p $HOME/.ipython/profile_default/startup
 
 USER root
 
-RUN conda install --quiet --yes -c r r-essentials
+# RUN conda install --quiet --yes -c r r-essentials
+# RUN conda install --quiet --yes -c bioconda bioconductor-ggbio
 RUN conda install --quiet --yes -c bioconda bioconductor-biostrings 
-RUN conda install --quiet --yes -c bioconda bioconductor-ggbio
 RUN conda install --quiet --yes 'nbdime' 
 RUN conda install --quiet --yes -c bioconda bioconductor-deseq2 bioconductor-pathview r-rentrez
 RUN conda install --quiet --yes -n python2 --channel https://conda.anaconda.org/Biobuilds htseq pysam biopython tophat
